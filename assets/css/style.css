@@ -1,0 +1,10 @@
+#logo {
+    height: 100px;
+    width: auto;
+}
+body {
+    background-image: url("../images/back.jpg");
+}
+nav a {
+    font-weight: bold;
+}
