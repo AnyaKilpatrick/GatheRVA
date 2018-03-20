@@ -4,7 +4,20 @@
 }
 body {
     background-image: url("../images/back.jpg");
+    
 }
 nav a {
     font-weight: bold;
 }
+
+#mainContent{
+	padding-top: 75px;
+	 
+}
+
+/*Colors*/
+
+/*color:#848181
+/*color:#35C2F0
+
+
