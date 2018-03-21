@@ -3,7 +3,7 @@
     width: auto;
 }
 body {
-  background:#afccde80;
+background:#afccde80;
 }
 
 /* header */
@@ -13,13 +13,6 @@ body {
     font-weight: bold;
     color:#1e7a94;
 }
-#header a:hover{
-    color: #154452;
-}
-#header {
-    background:  #80808038;
-}
-
 /* search input */
 #inputSelector{
         color:#1e7a94;
@@ -47,3 +40,4 @@ body {
 .myDropDown {
     background: #808080b7;
 }
+
