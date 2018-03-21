@@ -13,6 +13,12 @@ background:#afccde80;
     font-weight: bold;
     color:#1e7a94;
 }
+#header {
+    background: #92919159;
+}
+#header a:hover{
+    color:#103f4d;
+}
 /* search input */
 #inputSelector{
         color:#1e7a94;
