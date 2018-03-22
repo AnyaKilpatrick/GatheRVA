@@ -2,35 +2,42 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-		<title id="title">GatheRVA</title>
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+	
+	<title id="title">GatheRVA</title>
 </head>
 <body>
-	<div class="container-fluid align-items-center justify-content-center">
+	<!-- logo -->
+	<div class="container-fluid">
 		<div class="row m-3 justify-content-center">
 			<div class="col-3">
 				<img src="assets/images/ourlogo.png" alt="logo" id ="logo">
 			</div>
 		</div>
 	</div>
+	<!-- navbar -->
 	<div class="container-fluid p-0">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<div class="navbar-nav">
-					<i class="fas fa-home"></i>
-					<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="#">Home <span class="sr-only">(current)</span></a>
-					<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="#">Volunteer</a>
-					<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="#">Music</a>
-					<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="#">Food/Beverage</a>
-					<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="#">Concert/Festival</a>
-					<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="#">Create Own Event</a>
-				</div>
+		<nav class="navbar navbar-expand-lg" id="header">
+			<div class="navbar-nav m-auto">
+				<i class="fas fa-home"></i>
+				<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="index.html">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="volunteerPage.html">Volunteer</a>
+				<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="musicPage.html">Music</a>
+				<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="foodPage.html">Food/Beverage</a>
+				<a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="createEventPage.html">Create Own Event</a>
 			</div>
 		</nav>
 	</div>
+	<!-- search input -->
 	<div class="container" id="mainContent">
 		<div class="input-group mb-3 mt-3 pt-4">
-			<select class="custom-select" id="inputGroupSelect02">
+			<select class="custom-select" id="inputSelector">
 				<option selected>Choose...</option>
 				<option value="this week">this week</option>
 				<option value="next week">next week</option>
@@ -38,13 +45,29 @@
 				<option value="next month">next month</option>
 			</select>
 			<div class="input-group-append">
-				<label class="input-group-text" for="inputGroupSelect02">Search Events</label>
+				<button id="mainButton" class="btn btn-info ml-3">Search</button>
 			</div>
 		</div>
 		<button type="submit" id="submit">Submit</button>
 	</div>
-
-
+	<div class="container">
+		<div class="row" id="mainPageInfo"> <!-- div (row) that will hold all event cards -->
+			<!-- <div class="card m-3 myCard" style="width: 18rem;">
+				<img class="card-img-top myCardImg" src="assets/images/ev.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Event Title</h5>
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								View More
+							</button>
+						<div class="dropdown-menu myDropDown" aria-labelledby="dropdownMenu2">
+							<p class="m-3">fhchghj ndskjhj  hje  few w ekjfewlkwkdjvj hrwqh d;qihw</p>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div> 
 	<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="" src="assets/javascript/app.js"></script>
 </body>

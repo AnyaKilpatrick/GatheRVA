@@ -3,21 +3,53 @@
     width: auto;
 }
 body {
-    background-image: url("../images/back.jpg");
-    
+background:#afccde80;
 }
-nav a {
+
+/* header */
+#header a {
+    font-size: 24px;
+    font-family: 'Gloria Hallelujah', cursive;
     font-weight: bold;
+    color:#1e7a94;
+}
+#header {
+    background: #92919159;
+}
+#header a:hover{
+    color:#103f4d;
+}
+/* search input */
+#inputSelector{
+        color:#1e7a94;
+        font-weight: bold;
+        border-radius: 25px;
+        font-family: 'Gloria Hallelujah', cursive;
+
+}
+#mainButton {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 100px;
+    background: #27787a;
 }
 
-#mainContent{
-	padding-top: 75px;
-	 
+/*styled cards (event divs)*/
+.myCard {
+    border-radius: 20px;
+    background: rgba(180, 109, 174, 0.445);
+    border: solid 2px rgba(0, 0, 0, 0.295);
+}
+.myCardImg {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.myDropDown {
+    background: #808080b7;
 }
 
-/*Colors*/
-
-/*color:#848181
-/*color:#35C2F0
-
-
+/* "Create Your Own Event" page style */
+#myForm {
+    background: #ffffff8e;
+    border-radius:25px;
+    border: solid 4px #b46dae50;
+}
