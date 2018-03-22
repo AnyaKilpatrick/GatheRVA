@@ -47,3 +47,9 @@ background:#afccde80;
     background: #808080b7;
 }
 
+/* "Create Your Own Event" page style */
+#myForm {
+    background: #ffffff8e;
+    border-radius:25px;
+    border: solid 4px #b46dae50;
+}
