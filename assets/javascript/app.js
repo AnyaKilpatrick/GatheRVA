@@ -5,6 +5,7 @@ var food
 var concert
 var create
 var eventfulURL
+var image
 
 // ---------------------------------------------------CREATE YOUR OWN EVENT PAGE----------------------------------------------
 //  Initialize Firebase//
@@ -81,58 +82,110 @@ fileButton.addEventListener("change", function(e){
     );
 });
 
-$("#createPageInfo").append(`
-    <div class="card m-3 myCard" style="width: 18rem;">
-        <img class="card-img-top myCardImg" src="assets/images/ev.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">${database.name}</h5>
-                <p>${database.date}</p>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        View More
-                    </button>
-                <div class="dropdown-menu myDropDown" aria-labelledby="dropdownMenu2">
-                    <p class="m-3">fhchghj ndskjhj  hje  few w ekjfewlkwkdjvj hrwqh d;qihw</p>
-                </div>
-            </div>
-        </div>
-    </div>
-`)
 
+// $("#createPageInfo").append(`
+//     <div class="card m-3 myCard" style="width: 18rem;">
+//         <img class="card-img-top myCardImg" src="assets/images/ev.jpg" alt="Card image cap">
+//             <div class="card-body">
+//                 <h5 class="card-title">${database.name}</h5>
+//                 <p>${database.date}</p>
+//                 <div class="dropdown">
+//                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+//                         View More
+//                     </button>
+//                 <div class="dropdown-menu myDropDown" aria-labelledby="dropdownMenu2">
+//                     <p class="m-3">fhchghj ndskjhj  hje  few w ekjfewlkwkdjvj hrwqh d;qihw</p>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+// `)
 
 //   --------------------------------------------------------------------------------------------------------
 
 //categories from eventful: music, food
 
 
-//for volunteer from volunteermatch
-$("#volunteer").on("click", function(){
 
-
-})
 // -------------------------------------------------MUSIC PAGE---------------------------------------------------
 //for music from eventful
-$("#music").on("click", function(){
+$("#submit").on("click", function(){
+    console.log("test1")
     eventfulURL = "http://api.eventful.com/json/events/search?app_key=DGg6NJ2vxT6RkDrW&location=Richmond,+VA&date=Next+week&c=music"
     $.ajax({
         url: eventfulURL,
         method: "Get",
     }).then(function(response){
         console.log(JSON.parse(response))
+        for(i=0; i<10; i++){
+            music = JSON.parse(response)
+            if(music.events.event[i].image === null){
+                image = "https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            }else{
+                image = music.events.event[i].image.medium.url
+            }
+            // $("#musicPageInfo").append
+            $("#musicPageInfo").append(`<div class="card m-3 myCard" style="width: 18rem;">
+                    <img class="card-img-top myCardImg" src=${image}>
+                        <div class="card-body">
+                            <p class="card-title"><a href="${music.events.event[i].url}">Performer: ${music.events.event[i].title}</a></p>
+                            <p class="card-location">Location: ${music.events.event[i].venue_name}</p>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    View More
+                                </button>
+                            <div class="dropdown-menu myDropDown" aria-labelledby="dropdownMenu2">
+                                <p class="m-3">${music.events.event[i].description}</p>
+                                <p class="m-3">${music.events.event[i].start_time}</p>
+                                <p class="m-3">${music.events.event[i].venue_address}</p>
+                                <p class="m-3">Date: ${music.events.event[i].start_time}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>`) 
+        }        
     })
 })
 // -------------------------------------------------------FOOD PAGE----------------------------------------------------------
 //for food from eventful
-$("#food").on("click", function(){
+$("#submit").on("click", function(){
+    console.log("test2")
     eventfulURL = "http://api.eventful.com/json/events/search?app_key=DGg6NJ2vxT6RkDrW&location=Richmond,+VA&date=Next+week&c=food"
     $.ajax({
         url: eventfulURL,
         method: "Get",
     }).then(function(response){
         console.log(JSON.parse(response))
+        for(j=0; j<10; j++){
+            food = JSON.parse(response)
+            if(food.events.event[j].image === null){
+                image = "https://images.pexels.com/photos/5929/food-salad-dinner-eating.jpg?auto=compress&cs=tinysrgb&dpr=2&h=350"
+            }else{
+                image = food.events.event[j].image.medium.url
+            }
+            // $("#foodPageInfo").append
+            $("#foodPageInfo").append(`<div class="card m-3 myCard" style="width: 18rem;">
+                    <img class="card-img-top myCardImg" src=${image}>
+                        <div class="card-body">
+                            <p class="card-title"><a href="${food.events.event[j].url}">Performer: ${food.events.event[j].title}</a></p>
+                            <p class="card-location">Location: ${food.events.event[j].venue_name}</p>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    View More
+                                </button>
+                            <div class="dropdown-menu myDropDown" aria-labelledby="dropdownMenu2">
+                                <p class="m-3">${food.events.event[j].description}</p>
+                                <p class="m-3">${food.events.event[j].start_time}</p>
+                                <p class="m-3">${food.events.event[j].venue_address}</p>
+                                <p class="m-3">Date: ${food.events.event[j].start_time}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>`)
+        }        
     })
 })
-})
+
 
 // //potentially deleting this
 // $("#concert").on("click", function(){
