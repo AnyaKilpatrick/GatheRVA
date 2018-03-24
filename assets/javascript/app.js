@@ -125,11 +125,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 //categories from eventful: music, food
 
 
-//for volunteer from volunteermatch
-$("#volunteer").on("click", function(){
 
-
-})
 // -------------------------------------------------MUSIC PAGE---------------------------------------------------
 //for music from eventful
 $("#submit").on("click", function(){
@@ -231,3 +227,53 @@ $("#submit").on("click", function(){
 // }).then(function(response){
 //     console.log(response)
 // })
+// --------------------------------------------------------MARATHON PAGE---------------------------------------
+$("#volunteer").on("click", function () {
+    // var justServe = $(this).attr("data-name");
+//   start_date=2013-07-04..
+    var queryURL = "https://api.amp.active.com/v2/search?query=running&category=event&near=Richmond,VA,US&radius=50&api_key=f52rg4rp2bv9dw9q2n4anp9j"
+    console.log("yay api");
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log(response);
+      console.log(response.results.length);
+      var marathonImage;
+
+      for (var s=0; s<response.results.length; s++){
+        console.log(response.results[s].assetName);
+        var eventtime = moment(response.results[s].activityStartDate).format("dddd, MMMM Do YYYY, h:mm:ss a");
+        $("#marathonPageInfo").append(`
+        <div class="card m-3 myCard" style="width: 18rem;">
+            <img class="card-img-top myCardImg" src="${response.results[s].assetImages[0].imageUrlAdr}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${response.results[s].assetTopics[0].topic.topicTaxonomy}</h5>
+                    <p><strong>Category:</strong> ${response.results[s].assetName} </p>
+                    <p><strong>Location:</strong> ${response.results[s].place.placeName}</p>
+                    <p><strong>Date:</strong> ${eventtime}</p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            View More
+                        </button>
+                    <div class="dropdown-menu myDropDown" aria-labelledby="dropdownMenu2">
+                        <p class="m-3">Address: ${response.results[s].place.addressLine1Txt},${response.results[s].place.cityName},${response.results[s].place.stateProvinceCode},${response.results[s].place.countryName}</p>
+                        <p>Description:${response.results[s].assetDescriptions[0].description}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      `)
+      }
+      
+    })
+
+})
+
+
+// if(music.events.event[i].image === null){
+//     image = "https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+// }else{
+//     image = music.events.event[i].image.medium.url
+// }
