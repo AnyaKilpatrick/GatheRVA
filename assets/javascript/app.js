@@ -29,6 +29,7 @@ $("form").submit( function(event) {
   var details = $("#details-input").val().trim();
   var date = $("#date-input").val().trim();//have not looked in to date yet//
   var email = $("#inputEmail3").val().trim(); 
+  var category = $("#cat").val().trim();
 
   // Creates local object for holding event data//
   var newEvent = {
@@ -36,6 +37,7 @@ $("form").submit( function(event) {
     details: details,
     date: date,
     email: email,
+    category: category,
   };
 
   // Uploads event data to the database//
@@ -45,6 +47,7 @@ $("form").submit( function(event) {
   $("#details-input").val("");
   $("#date-input").val("");
   $("#inputEmail3").val("");
+  $("#cat").val("");
   // Clears all of the text-boxes//
 
 
@@ -53,6 +56,7 @@ $("form").submit( function(event) {
   console.log(newEvent.details);
   console.log(newEvent.email);
   console.log(newEvent.date);
+  console.log(newEvent.category);
 
   // This needs to be changed to a modal???///
   alert("New Event Has Been Added");
@@ -87,13 +91,16 @@ var fileButton = document.getElementById("fileButton");
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   console.log(childSnapshot.val());
+   var edate = childSnapshot.val().date;
+ var formatDate = moment(edate).format("dddd, MMMM Do YYYY");  
   $("#createPageInfo").append(`
 
  <div class="card m-3 myCard" style="width: 18rem;">
             <img class="card-img-top myCardImg" src="assets/images/ev.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">${childSnapshot.val().name}</h5>
-                    <strong>${childSnapshot.val().date}</strong>
+                    <strong>Category:</strong><span>${childSnapshot.val().category}
+                     <p><strong>Date:</strong><span>${formatDate}</span></p>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             View More

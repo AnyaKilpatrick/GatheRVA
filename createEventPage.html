@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <title>GatheRVA: Create Own Event</title>
 </head>
@@ -51,6 +52,20 @@
                     <div class="col-md-12 mb-3">
                         <label for="validationDefault02">Date of Event</label>
                         <input type="date" class="form-control"  placeholder="mm/dd/yyyy" id="date-input" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label for="categories">Category</label>
+                        
+                        <select class="custom-select" id="cat" required>
+                            <option selected>Choose...</option>
+                            <option value="Food">Food</option>
+                            <option value="Music">Music</option>
+                            <option value="Active">Be Active</option>
+                        
+                        </select>
+                        
                     </div>
                 </div>
                 <div class="form-row">
