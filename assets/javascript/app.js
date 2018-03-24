@@ -6,6 +6,8 @@ var concert
 var create
 var eventfulURL
 var image
+var eventDate
+var eventTime
 
 // ---------------------------------------------------CREATE YOUR OWN EVENT PAGE----------------------------------------------
 //  Initialize Firebase//
@@ -128,16 +130,19 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
 // -------------------------------------------------MUSIC PAGE---------------------------------------------------
 //for music from eventful
-$("#submit").on("click", function(){
+$(document).ready(function(){
     console.log("test1")
     eventfulURL = "http://api.eventful.com/json/events/search?app_key=DGg6NJ2vxT6RkDrW&location=Richmond,+VA&date=Next+week&c=music"
     $.ajax({
         url: eventfulURL,
         method: "Get",
     }).then(function(response){
-        console.log(JSON.parse(response))
+        console.log(JSON.parse(response));
         for(i=0; i<10; i++){
-            music = JSON.parse(response)
+            music = JSON.parse(response);
+            console.log("This is the moment:" + music.events.event[i].start_time);
+            eventDate = moment(music.events.event[i].start_time).format("dddd, MMMM Do YYYY, h:mm:ss a");
+            eventTime = moment(music.events.event[i].start_time).format("dddd, MMMM Do YYYY, h:mm:ss a");
             if(music.events.event[i].image === null){
                 image = "https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             }else{
@@ -149,15 +154,15 @@ $("#submit").on("click", function(){
                         <div class="card-body">
                             <p class="card-title"><a href="${music.events.event[i].url}">Performer: ${music.events.event[i].title}</a></p>
                             <p class="card-location">Location: ${music.events.event[i].venue_name}</p>
+                            <p class="card-date">Date: ${eventDate}</p>
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     View More
                                 </button>
                             <div class="dropdown-menu myDropDown" aria-labelledby="dropdownMenu2">
-                                <p class="m-3">${music.events.event[i].description}</p>
-                                <p class="m-3">${music.events.event[i].start_time}</p>
-                                <p class="m-3">${music.events.event[i].venue_address}</p>
-                                <p class="m-3">Date: ${music.events.event[i].start_time}</p>
+                                <p class="m-3">Description: ${music.events.event[i].description}</p>
+                                <p class="m-3">Venue: ${music.events.event[i].venue_name}</p>
+                                <p class="m-3">Venue Address: ${music.events.event[i].venue_address}</p>
                             </div>
                         </div>
                     </div>
@@ -167,7 +172,7 @@ $("#submit").on("click", function(){
 })
 // -------------------------------------------------------FOOD PAGE----------------------------------------------------------
 //for food from eventful
-$("#submit").on("click", function(){
+$(document).ready(function(){
     console.log("test2")
     eventfulURL = "http://api.eventful.com/json/events/search?app_key=DGg6NJ2vxT6RkDrW&location=Richmond,+VA&date=Next+week&c=food"
     $.ajax({
