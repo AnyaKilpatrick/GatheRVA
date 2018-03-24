@@ -44,7 +44,9 @@ background:#afccde80;
     border-top-right-radius: 20px;
 }
 .myDropDown {
-    background: #808080b7;
+    background: #808080;
+    width: 900px;
+
 }
 
 /* "Create Your Own Event" page style */
