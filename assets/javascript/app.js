@@ -22,38 +22,42 @@ var image
 var database = firebase.database();
 
 // Button for adding event
-$("#add-event-btn").on("click", function(event) {
+$("form").submit( function(event) {
   event.preventDefault();
 
   // Grabs user input//
   var eventName = $("#event-name-input").val().trim();
-  var location = $("#location-input").val().trim();
-  var time = moment($("#time-input").val().trim(), "HH:mm").format("X");
+  var details = $("#details-input").val().trim();
   var date = $("#date-input").val().trim();//have not looked in to date yet//
+  var email = $("#inputEmail3").val().trim(); 
+  var category = $("#cat").val().trim();
 
   // Creates local object for holding event data//
-  var newEvnet = {
+  var newEvent = {
     name: eventName,
-    location: location,
-    time: time,
+    details: details,
     date: date,
+    email: email,
+    category: category,
   };
 
   // Uploads event data to the database//
   database.ref().push(newEvent);
 
   $("#event-name-input").val("");
-  $("#location-input").val("");
-  $("#time-input").val("");
+  $("#details-input").val("");
   $("#date-input").val("");
+  $("#inputEmail3").val("");
+  $("#cat").val("");
   // Clears all of the text-boxes//
 
 
   // Logs everything to console//
   console.log(newEvent.name);
-  console.log(newEvent.location);
-  console.log(newEvent.time);
+  console.log(newEvent.details);
+  console.log(newEvent.email);
   console.log(newEvent.date);
+  console.log(newEvent.category);
 
   // This needs to be changed to a modal???///
   alert("New Event Has Been Added");
@@ -62,16 +66,18 @@ $("#add-event-btn").on("click", function(event) {
 var uploader = document.getElementById("uploader");
 var fileButton = document.getElementById("fileButton");
 //listen for file selection//
-fileButton.addEventListener("change", function(e){
      //Get file
-    var file = e.target.files[0];
+    var file = fileButton.files[0];
+    console.log('File: %O', file);
+
     //create a storage ref
     var storageRef = firebase.storage().ref("event_photos/" + file.name);
     //upload file
     var task = storageRef.put(file);
     //update progress bar
-    task.on("state_changed ",
+    task.on("state_changed",
         function progress(snapshot){
+            console.log('Progress: %O', snapshot);
             var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             uploader.value = percentage;
         },
@@ -81,7 +87,39 @@ fileButton.addEventListener("change", function(e){
         }
     );
 });
+
+
+//  Create Firebase event for adding new train to the database and a row in the html when a user adds an entry//
+database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+
+  console.log(childSnapshot.val());
+   var edate = childSnapshot.val().date;
+ var formatDate = moment(edate).format("dddd, MMMM Do YYYY");  
+  $("#createPageInfo").append(`
+
+ <div class="card m-3 myCard" style="width: 18rem;">
+            <img class="card-img-top myCardImg" src="assets/images/ev.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${childSnapshot.val().name}</h5>
+                    <strong>Category:</strong><span>${childSnapshot.val().category}
+                     <p><strong>Date:</strong><span>${formatDate}</span></p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            View More
+                        </button>
+                    <div class="dropdown-menu myDropDown" aria-labelledby="dropdownMenu2">
+                        <p class="m-3">${childSnapshot.val().details} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    `)
+
+  });
 })  
+
 //   --------------------------------------------------------------------------------------------------------
 
 //categories from eventful: music, food
