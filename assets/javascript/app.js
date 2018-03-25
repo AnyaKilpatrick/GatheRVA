@@ -96,9 +96,10 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   console.log(childSnapshot.val());
    var edate = childSnapshot.val().date;
- var formatDate = moment(edate).format("dddd, MMMM Do YYYY");  
-  $("#createPageInfo").append(`
+ var formatDate = moment(edate).format("dddd, MMMM Do YYYY"); 
+ var divId = childSnapshot.val().category;
 
+  $("#"+divId).append(`
  <div class="card m-3 myCard" style="width: 18rem;">
             <img class="card-img-top myCardImg" src="assets/images/ev.jpg" alt="Card image cap">
                 <div class="card-body">
@@ -119,8 +120,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
     `)
 
-  });
-})  
+  });  
 
 //   --------------------------------------------------------------------------------------------------------
 
@@ -233,7 +233,7 @@ $(document).ready(function(){
 //     console.log(response)
 // })
 // --------------------------------------------------------MARATHON PAGE---------------------------------------
-$("#volunteer").on("click", function () {
+$(document).ready(function() {
     // var justServe = $(this).attr("data-name");
 //   start_date=2013-07-04..
     var queryURL = "https://api.amp.active.com/v2/search?query=running&category=event&near=Richmond,VA,US&radius=50&api_key=f52rg4rp2bv9dw9q2n4anp9j"
