@@ -35,18 +35,18 @@ background:#afccde80;
 
 /*styled cards (event divs)*/
 .myCard {
-    border-radius: 20px;
+    border-radius: 10px;
     background: rgba(180, 109, 174, 0.445);
     border: solid 2px rgba(0, 0, 0, 0.295);
 }
 .myCardImg {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .myDropDown {
     background: #808080;
     width: 900px;
-
+    border-radius: 15px;
 }
 
 /* "Create Your Own Event" page style */
@@ -54,4 +54,23 @@ background:#afccde80;
     background: #ffffff8e;
     border-radius:25px;
     border: solid 4px #b46dae50;
+}
+.ourmenu {
+    margin-left: 15%;
+}
+
+@media screen and (max-width: 1240px){
+    .ourmenu{
+        margin-left:10%;
+    }
+}
+@media screen and (max-width: 1090px){
+    .ourmenu{
+        margin-left:5%;
+    }
+}
+@media screen and (max-width: 1025px){
+    .ourmenu{
+        margin-left:0;
+    }
 }
