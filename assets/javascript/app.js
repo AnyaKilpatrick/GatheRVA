@@ -102,9 +102,39 @@ var fileButton = document.getElementById("fileButton");
 
 
   // This needs to be changed to a modal???///
-  alert("New Event Has Been Added");
 
-  });
+  
+  //uploading photos/files to storage//
+var uploader = document.getElementById("uploader");
+var fileButton = document.getElementById("fileButton");
+//listen for file selection//
+     //Get file
+    var file = fileButton.files[0];
+    console.log('File: %O', file);
+
+    //create a storage ref
+    var storageRef = firebase.storage().ref("event_photos/" + file.name);
+    //upload file
+    var task = storageRef.put(file);
+    //update progress bar
+    task.on("state_changed",
+        function progress(snapshot){
+            console.log('Progress: %O', snapshot);
+            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            uploader.value = percentage;
+        },
+        function error(err) {
+        }, 
+        function complete() {
+        }
+    );
+
+    // if ( $("progress").val() === 100) {
+    //     console.log("modal call!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    //     // $('#exampleModal').modal();
+    // }
+    
+});
 
 
 
