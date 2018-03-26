@@ -15,6 +15,9 @@ background:#afccde80;
 }
 #header {
     background: #92919159;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
 }
 #header a:hover{
     color:#103f4d;
@@ -38,6 +41,7 @@ background:#afccde80;
     border-radius: 10px;
     background: rgba(180, 109, 174, 0.445);
     border: solid 2px rgba(0, 0, 0, 0.295);
+    z-index: -10;
 }
 .myCardImg {
     border-top-left-radius: 10px;
@@ -55,6 +59,44 @@ background:#afccde80;
     border-radius:25px;
     border: solid 4px #b46dae50;
 }
+
+/* This plays the video only behind the logo on all of the other pages */
+video#gatherRVAVid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-118.3%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover; 
+    opacity: .25;
+}
+/* This plays the video over the background of the entire home page */
+video#gatherRVAVidHome { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    /* background: url(polina.jpg) no-repeat; */
+    /* background-size: cover;  */
+    opacity: .25;
+}
+
 .ourmenu {
     margin-left: 15%;
 }
@@ -74,3 +116,4 @@ background:#afccde80;
         margin-left:0;
     }
 }
+
