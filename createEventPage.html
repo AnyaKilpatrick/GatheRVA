@@ -9,6 +9,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
@@ -30,18 +31,30 @@
         </div>
     </div>
     <!-- navbar -->
-    <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg" id="header">
-            <div class="navbar-nav m-auto">
-                <i class="fas fa-home"></i>
-                <a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="index.html">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="activePage.html">Be Active</a>
-                <a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="musicPage.html">Music</a>
-                <a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="foodPage.html">Food/Beverage</a>
-                <a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="createEventPage.html">Create Own Event</a>
-            </div>
-        </nav>
-    </div>
+    <nav class="navbar navbar-expand-lg" id="header">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="far fa-caret-square-down fa-2x"></i>
+        </button>
+        <div class="collapse navbar-collapse ourmenu" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="activePage.html">Be Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="musicPage.html">Music</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="foodPage.html">Food/Beverage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link ml-3 mr-3 pl-3 pr-3" href="createEventPage.html">Create Own Event</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container-fluid">
         <div class="col-xl-2 col-l-3 col-md-3 m-3 p-3" id="myForm">
             <form>

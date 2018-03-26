@@ -273,9 +273,14 @@ $("#volunteer").on("click", function () {
       for (var s=0; s<response.results.length; s++){
         console.log(response.results[s].assetName);
         var eventtime = moment(response.results[s].activityStartDate).format("dddd, MMMM Do YYYY, h:mm:ss a");
+        var myImgLink = response.results[s].assetImages[0].imageUrlAdr;
+        if (myImgLink.includes("youtube")){
+            myImgLink = "https://img.youtube.com/vi/"+myImgLink.slice(myImgLink.indexOf("watch?v=")+8)+"/0.jpg";
+
+        }
         $("#marathonPageInfo").append(`
         <div class="card m-3 myCard" style="width: 18rem;">
-            <img class="card-img-top myCardImg" src="${response.results[s].assetImages[0].imageUrlAdr}" alt="Card image cap">
+            <img class="card-img-top myCardImg" src="${myImgLink}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">${response.results[s].assetTopics[0].topic.topicTaxonomy}</h5>
                     <p><strong>Category:</strong> ${response.results[s].assetName} </p>
