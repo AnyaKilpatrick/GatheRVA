@@ -62,9 +62,9 @@ $("form").submit( function(event) {
   console.log(newEvent.category);
 
   // This needs to be changed to a modal???///
-  alert("New Event Has Been Added");
 
-//uploading photos/files to storage//
+  
+  //uploading photos/files to storage//
 var uploader = document.getElementById("uploader");
 var fileButton = document.getElementById("fileButton");
 //listen for file selection//
@@ -88,6 +88,12 @@ var fileButton = document.getElementById("fileButton");
         function complete() {
         }
     );
+
+    // if ( $("progress").val() === 100) {
+    //     console.log("modal call!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    //     // $('#exampleModal').modal();
+    // }
+    
 });
 
 
