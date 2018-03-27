@@ -14,10 +14,15 @@ background:#afccde80;
     color:#1e7a94;
 }
 #header {
-    background: #92919159;
+    background: #000000d8;
+    width: 100%;
+    z-index: 10;
 }
 #header a:hover{
-    color:#103f4d;
+    color:#aaddec;
+}
+.ourmenu {
+    margin-left: 15%;
 }
 /* search input */
 #inputSelector{
@@ -35,16 +40,19 @@ background:#afccde80;
 
 /*styled cards (event divs)*/
 .myCard {
-    border-radius: 20px;
+    border-radius: 10px;
     background: rgba(180, 109, 174, 0.445);
     border: solid 2px rgba(0, 0, 0, 0.295);
+    /* z-index: -10; */
 }
 .myCardImg {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .myDropDown {
-    background: #808080b7;
+    background: #808080;
+    width: 900px;
+    border-radius: 15px;
 }
 
 /* "Create Your Own Event" page style */
@@ -52,4 +60,88 @@ background:#afccde80;
     background: #ffffff8e;
     border-radius:25px;
     border: solid 4px #b46dae50;
+}
+/* Modal */
+#mymodal {
+    width: 400px;
+    font-size: 24px;
+}
+/* This plays the video only behind the logo on all of the other pages */
+video#gatherRVAVid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover; 
+    opacity: .25;
+}
+/* This plays the video over the background of the entire home page */
+video#gatherRVAVidHome { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    /* background: url(polina.jpg) no-repeat; */
+    /* background-size: cover;  */
+    opacity: .25;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1240px){
+    .ourmenu{
+        margin-left:10%;
+    }
+}
+@media screen and (max-width: 1090px){
+    .ourmenu{
+        margin-left:5%;
+    }
+    #RVADescription{
+        width: 75%
+    }
+}
+@media screen and (max-width: 1025px){
+    .ourmenu{
+        margin-left:0;
+    }
+    #RVADescription{
+        width: 65%
+    }
+}
+
+#RVADescription{
+    top: 50px;
+    background-color: gray;
+    opacity: .8;
+    font-size: 24px;
+    padding: 1%;
+    font-family: 'Gloria Hallelujah', cursive;
+    width: 85%;
+}
+
+#gatheRVA{
+    font-size: 30px;
+}
+
+#weather{
+    position: fixed;
+    right: 30px;
+    top: 260px;    
 }
