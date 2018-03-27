@@ -3,13 +3,13 @@ Group Project
 
 
 
-###Team Members
+### Team Members
 * Anya Kilpatrick
 * Jan-Michael Edwards
 * Johnny Heath
 * Mariea Johnson
 
-###Project Overview
+### Project Overview
 
 * We started with the problem statement: “What is there to do next weekend in Richmond?”; this is near and dear to our hearts as we have all experienced this
 
@@ -19,7 +19,7 @@ Group Project
 
 * Captured user data for create your own section using Firebase Database and Firebase Storage
 
-###Applications/APIs/Programs Used
+### Applications/APIs/Programs Used
 
 1. Active API – Athletic events, such as running, cycling, triathlons, etc.
 
@@ -41,7 +41,7 @@ Group Project
 
 10. Imbedded video 
 
-###Design Process
+### Design Process
 
 Came together to design the user experience and details that were must haves; user experience was our primary focus throughout this journey
 
@@ -54,7 +54,7 @@ Landed on using Bootstrap card instead of a list so that the content is displaye
 Researched multiple APIs before landing on a few where we could return meaningful data
 
 
-###Future Development
+### Future Development
 
 * We wanted user created events to be moderated by other users, but weren’t able to deliver; would like to add this at a later date
 
