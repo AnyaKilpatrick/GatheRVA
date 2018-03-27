@@ -16,17 +16,18 @@
 </head>
 <body>
 	<!-- logo -->
-	<div class="container-fluid">
-		<video playsinline autoplay muted loop poster="polina.jpg" id="gatherRVAVidHome">
-				<source src="assets/images/GatheRVAVideo.mp4" type="video/webm">
-				<source src="assets/images/GatheRVAVideo.mp4" type="video/mp4">
-		</video>
+    <div class="container-fluid">
 		<div class="row m-3 justify-content-center">
-			<div class="col-3">
+			<div class="col-xl-4 col-l-4 col-md-6 col-sm-8">
 				<img src="assets/images/ourlogo.png" alt="logo" id ="logo">
 			</div>
 		</div>
 	</div>
+	<!-- Background video -->
+	<video playsinline autoplay muted loop poster="polina.jpg" id="gatherRVAVid">
+		<source src="assets/images/GatheRVAVideo.mp4" type="video/webm">
+		<source src="assets/images/GatheRVAVideo.mp4" type="video/mp4">
+	</video>
 	<!-- navbar -->
 	<!-- <div class="container-fluid p-0"> -->
 		<nav class="navbar navbar-expand-lg" id="header">
@@ -54,50 +55,24 @@
 			</div>
 		</nav>
 	<!-- </div> -->
-	<!-- search input -->
-	<div class="container" id="mainContent">
-		<div class="input-group mb-3 mt-3 pt-4" id="RVADescription">
-			<!-- <select class="custom-select" id="inputSelector">
-				<option selected>Choose...</option>
-				<option value="this week">this week</option>
-				<option value="next week">next week</option>
-				<option value="this month">this month</option>
-				<option value="next month">next month</option>
-			</select> -->
-			<!-- <div class="input-group-append">
-				<button id="mainButton" class="btn btn-info ml-3">Search</button>
-			</div> -->
-			<p>Richmond, VA (affectionately known as RVA) is a medium sized city on the banks of the James River in Central Virginia.  While a little over 1.2MM people call the RVA and sorrounding areas home, the constant question is: "What's going on this week around town?"
-			</p>
-			<p id="gatheRVA">Enter GatheRVA ...
-			</p>
+	<div class="container">
+		<div class="row justify-content-around">
+			<div class="col-xl-9 col-l-9 col-md-8 col-sm-7 offset-1" id="RVADescription">
+				<p>
+					<span class="pickedWord">Richmond, VA</span> (affectionately known as RVA) is a medium sized city on the banks of the James River in Central Virginia.  While a little over 1.2MM people call the RVA and sorrounding areas home, the constant question is: <span class="pickedWord">"What's going on this week around town?"</span>
+				</p>
+				<p id="gatheRVA">
+					Enter GatheRVA ...
+				</p>
+			</div>
+			<div class="col-auto">
+				<!-- weather widget start -->
+				<a id="weather" target="_blank" href="http://www.booked.net/weather/richmond-648"><img src="https://w.bookcdn.com/weather/picture/4_648_0_1_0a0a0a_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=52001"  alt="booked.net"/></a>
+				<!-- weather widget end -->
+			</div>
 		</div>
 	</div>
-	<!-- weather widget start --><a id="weather" target="_blank" href="http://www.booked.net/weather/richmond-648"><img src="https://w.bookcdn.com/weather/picture/4_648_0_1_0a0a0a_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=52001"  alt="booked.net"/></a><!-- weather widget end -->
-	<!-- <div style="width: 210px;" id="weather">
-		<iframe style="display: block;" src="https://cdnres.willyweather.com/widget/loadView.html?id=84694" width="210" height="228"
-			frameborder="0" scrolling="no"></iframe>
-		<a style="z-index: 1;text-indent: -9999em;position: relative;display: block;margin: -20px 0 0 0;height: 20px"
-			href="https://www.willyweather.com/va/city-of-richmond/richmond.html" rel="nofollow">richmond forecast</a>
-	</div> -->
-	<div class="container">
-		<div class="row" id="mainPageInfo"> <!-- div (row) that will hold all event cards -->
-			<!-- <div class="card m-3 myCard" style="width: 18rem;">
-				<img class="card-img-top myCardImg" src="assets/images/ev.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Event Title</h5>
-						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								View More
-							</button>
-						<div class="dropdown-menu myDropDown" aria-labelledby="dropdownMenu2">
-							<p class="m-3">fhchghj ndskjhj  hje  few w ekjfewlkwkfg ggggggg gggggggggggge 4 tr32r2 r2r2 r wer 2 r3 r32r2 djvj hrwqh d;qihw</p>
-						</div>
-					</div>
-				</div>
-			</div> -->
-		</div>
-	</div> 
+
 	<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="" src="assets/javascript/app.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.js"></script>
