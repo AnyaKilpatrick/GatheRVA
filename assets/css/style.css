@@ -14,13 +14,12 @@ background:#afccde80;
     color:#1e7a94;
 }
 #header {
-    background: #92919159;
-    position: fixed;
+    background: #000000d8;
     width: 100%;
     z-index: 10;
 }
 #header a:hover{
-    color:#103f4d;
+    color:#aaddec;
 }
 .ourmenu {
     margin-left: 15%;
@@ -80,7 +79,7 @@ video#gatherRVAVid {
     -ms-transform: translateX(-50%) translateY(-50%);
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-118.3%);
+    transform: translateX(-50%) translateY(-50%);
     background: url(polina.jpg) no-repeat;
     background-size: cover; 
     opacity: .25;
@@ -114,10 +113,35 @@ video#gatherRVAVidHome {
     .ourmenu{
         margin-left:5%;
     }
+    #RVADescription{
+        width: 75%
+    }
 }
 @media screen and (max-width: 1025px){
     .ourmenu{
         margin-left:0;
     }
+    #RVADescription{
+        width: 65%
+    }
 }
 
+#RVADescription{
+    top: 50px;
+    background-color: gray;
+    opacity: .8;
+    font-size: 24px;
+    padding: 1%;
+    font-family: 'Gloria Hallelujah', cursive;
+    width: 85%;
+}
+
+#gatheRVA{
+    font-size: 30px;
+}
+
+#weather{
+    position: fixed;
+    right: 30px;
+    top: 260px;    
+}
