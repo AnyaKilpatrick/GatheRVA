@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -53,22 +54,7 @@
 			</div>
 		</nav>
 	<!-- </div> -->
-	<!-- search input -->
-	<div class="container" id="mainContent">
-		<div class="input-group mb-3 mt-3 pt-4">
-			<select class="custom-select" id="inputSelector">
-				<option selected>Choose...</option>
-				<option value="this week">this week</option>
-				<option value="next week">next week</option>
-				<option value="this month">this month</option>
-				<option value="next month">next month</option>
-			</select>
-			<div class="input-group-append">
-				<button id="mainButton" class="btn btn-info ml-3">Search</button>
-			</div>
-		</div>
-		<button type="submit" id="submit">Submit</button>
-	</div>
+	
 	<div style="width: 210px;" id="weather">
 		<iframe style="display: block;" src="https://cdnres.willyweather.com/widget/loadView.html?id=84694" width="210" height="228"
 			frameborder="0" scrolling="no"></iframe>

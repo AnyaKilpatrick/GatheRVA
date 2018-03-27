@@ -1,25 +1,23 @@
-console.log("It's alive!!!")
-var volunteer
+// GLOBAL VARIABLES
 var music
 var food
-var concert
-var create
 var eventfulURL
 var image
 var eventDate
 var eventTime
 var imageName
-// ---------------------------------------------------CREATE YOUR OWN EVENT PAGE----------------------------------------------
+
+// ---------------------------------------------------CREATE YOUR OWN EVENT PAGE------------------------------------------------------------------
 //  Initialize Firebase//
- var config = {
+var config = {
     apiKey: "AIzaSyC_KjDmCKyHZm_U9NbGWx8CXsfJ6E_Udu0",
     authDomain: "gatherva-ef25f.firebaseapp.com",
     databaseURL: "https://gatherva-ef25f.firebaseio.com",
     projectId: "gatherva-ef25f",
     storageBucket: "gatherva-ef25f.appspot.com",
     messagingSenderId: "19856738575"
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
 var database = firebase.database();
 var storageRef = firebase.storage();
@@ -28,47 +26,48 @@ var storageRef = firebase.storage();
 $("form").submit( function(event) {
   event.preventDefault();
 
-  // Grabs user input//
-  var eventName = $("#event-name-input").val().trim();
-  var details = $("#details-input").val().trim();
-  var date = $("#date-input").val().trim();//have not looked in to date yet//
-  var email = $("#inputEmail3").val().trim(); 
-  var category = $("#cat").val().trim(); 
+//   Modal
+  $("#close-modal").on("click", function(){ 
+    $('#mymodal').hide();
+    })
 
-  //uploading photos/files to storage//
+    if (event.isDefaultPrevented()) { //will display modal only if all inputs are validated
+    event.preventDefault();
+    $('#mymodal').show();
+    }
+// Grabs user input//
+var eventName = $("#event-name-input").val().trim();
+var details = $("#details-input").val().trim();
+var date = $("#date-input").val().trim();
+var email = $("#inputEmail3").val().trim(); 
+var category = $("#cat").val().trim(); 
+
+//uploading photos/files to storage//
 var uploader = document.getElementById("uploader");
 var fileButton = document.getElementById("fileButton");
 //listen for file selection//
-     //Get file
-    var file = fileButton.files[0];
-    console.log('File: %O', file);
-    console.log('image name: ' + imageName);
-    //create a storage ref
-     // storageRef.ref("event_photos/" + file.name);
-    //upload file
-    var task = storageRef.ref("event_photos/" + file.name).put(file);
-    console.log('task: ' + task.fullPath)
-    imageName = file.name;
-    //update progress bar
-    task.on("state_changed",
-        function progress(snapshot){
-            console.log('Progress: %O', snapshot);
-            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            uploader.value = percentage;
-        },
-        function error(err) {
-        }, 
-        function complete() {
-        }
-    );
-
-
-
-// storageRef.on("child_added", function(imageSnapshot, prevChildKey){
-  // console.log(imageSnapshot.val());
-
-
-// });
+//Get file
+var file = fileButton.files[0];
+console.log('File: %O', file);
+console.log('image name: ' + imageName);
+//create a storage ref
+    // storageRef.ref("event_photos/" + file.name);
+//upload file
+var task = storageRef.ref("event_photos/" + file.name).put(file);
+console.log('task: ' + task.fullPath)
+imageName = file.name;
+//update progress bar
+task.on("state_changed",
+    function progress(snapshot){
+        console.log('Progress: %O', snapshot);
+        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        uploader.value = percentage;
+    },
+    function error(err) {
+    }, 
+    function complete() {
+    }
+);
 
   // Creates local object for holding event data//
   var newEvent = {
@@ -99,10 +98,7 @@ var fileButton = document.getElementById("fileButton");
   console.log(newEvent.date);
   console.log(newEvent.category);
   console.log(newEvent.image);
-
-
-  // This needs to be changed to a modal???///
-
+// ****TO HERE
   
   //uploading photos/files to storage//
 var uploader = document.getElementById("uploader");
@@ -136,23 +132,22 @@ var fileButton = document.getElementById("fileButton");
     
 });
 
-
-
 //  Create Firebase event for adding new event to 
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
-  console.log(childSnapshot.val());1
-   var edate = childSnapshot.val().date;
- var formatDate = moment(edate).format("dddd, MMMM Do YYYY");
- var grabName = childSnapshot.val().image; 
- console.log('grab name: ' + grabName) ;
- var imgSrc;
- storageRef.ref().child('event_photos/' + grabName).getDownloadURL().then(function(url) {
+console.log(childSnapshot.val());1
+var edate = childSnapshot.val().date;
+var formatDate = moment(edate).format("dddd, MMMM Do YYYY");
+var grabName = childSnapshot.val().image; 
+console.log('grab name: ' + grabName) ;
+var imgSrc;
+
+storageRef.ref().child('event_photos/' + grabName).getDownloadURL().then(function(url) {
   imgSrc = url;
- })
+ });
   $("#userevents").append(`
 
- <div class="card m-3 myCard" style="width: 18rem;">
+        <div class="card m-3 myCard" style="width: 18rem;">
             <img class="card-img-top myCardImg" src="${imgSrc}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">${childSnapshot.val().name}</h5>
@@ -174,14 +169,6 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   });
  
-
-
-//   --------------------------------------------------------------------------------------------------------
-
-//categories from eventful: music, food
-
-
-
 // -------------------------------------------------MUSIC PAGE---------------------------------------------------
 //for music from eventful
 $(document).ready(function(){
@@ -264,30 +251,8 @@ $(document).ready(function(){
     })
 })
 
-
-// //potentially deleting this
-// $("#concert").on("click", function(){
-
-
-// })
-
-// $("#create").on("click", function(){
-
-
-// })
-
-
-
-//How to obtain list of categories
-// eventfulURL = "http://api.eventful.com/rest/categories/list?app_key=DGg6NJ2vxT6RkDrW"
-// $.ajax({
-//     url: eventfulURL,
-//     method: "Get",
-// }).then(function(response){
-//     console.log(response)
-// })
 // --------------------------------------------------------MARATHON PAGE---------------------------------------
-$("#volunteer").on("click", function () {
+$(document).ready(function() {
     // var justServe = $(this).attr("data-name");
 //   start_date=2013-07-04..
     var queryURL = "https://api.amp.active.com/v2/search?query=running&category=event&near=Richmond,VA,US&radius=50&api_key=f52rg4rp2bv9dw9q2n4anp9j"
@@ -331,6 +296,7 @@ $("#volunteer").on("click", function () {
       }
     })
 })
+
 
 
 // if(music.events.event[i].image === null){

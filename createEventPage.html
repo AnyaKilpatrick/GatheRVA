@@ -104,7 +104,7 @@
                         <input type="file"  class="form-control-file" value="upload" id="fileButton" required>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit" id="add-event-btn" data-toggle="modal" data-target="#exampleModal">Submit form</button>
+                <button class="btn btn-primary" type="submit" id="add-event-btn">Submit form</button>
             </form>
         </div>
     </div>  
@@ -113,7 +113,7 @@
             <!-- event cards holder -->
         </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -130,7 +130,17 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+      <div class="modal" id="mymodal">
+        <div class="modal-content">
+            <!-- Modal content -->
+            <div class="modal-header">
+                <button class="close" id="close-modal" type="button" data-dismiss="modal">x</button>
+                <br>
+                <h4 class="modal-title">Success! Your event has been added!</h4>
+            </div>
+        </div>
+    </div>
 
 
     
