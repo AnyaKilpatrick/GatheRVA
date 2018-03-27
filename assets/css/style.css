@@ -24,68 +24,69 @@ background:#afccde80;
 .ourmenu {
     margin-left: 15%;
 }
-/* search input */
-#inputSelector{
-        color:#1e7a94;
-        font-weight: bold;
-        border-radius: 25px;
-        font-family: 'Gloria Hallelujah', cursive;
-
+/* Home page text */
+#RVADescription{
+    top: 50px;
+    font-size: 24px;
+    color: rgb(41, 67, 68);
+    padding: 1%;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-weight: bold;
+    border-radius: 15px;
 }
-#mainButton {
-    background: rgba(255, 255, 255, 0);
-    border-radius: 100px;
-    background: #27787a;
+.pickedWord{
+    color: black;
 }
-
+#gatheRVA{
+    font-size: 30px;
+    color: black;
+}
+/* wether widget */
+#weather{
+    position: fixed;
+    right: 30px;
+    top: 260px;    
+}
 /*styled cards (event divs)*/
 .myCard {
     border-radius: 10px;
-    background: rgba(180, 109, 174, 0.445);
-    border: solid 2px rgba(0, 0, 0, 0.295);
-    /* z-index: -10; */
+    background: rgb(207, 233, 235);
 }
 .myCardImg {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 .myDropDown {
-    background: #808080;
-    width: 900px;
+    background: #a19999;
+    width: 600px;
     border-radius: 15px;
 }
 
 /* "Create Your Own Event" page style */
 #myForm {
-    background: #ffffff8e;
+    background: #9c9c9ce7;
     border-radius:25px;
-    border: solid 4px #b46dae50;
+    border: solid 2px rgb(49, 47, 47);
+    font-weight: bold;
+}
+input, select, textarea {
+    font-weight: bold;
+    border-radius: 30px;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+#add-event-btn {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    background: #27787a;
 }
 /* Modal */
 #mymodal {
     width: 400px;
     font-size: 24px;
 }
-/* This plays the video only behind the logo on all of the other pages */
+
+/* This plays the video over the background of the entire page */
 video#gatherRVAVid { 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    background: url(polina.jpg) no-repeat;
-    background-size: cover; 
-    opacity: .25;
-}
-/* This plays the video over the background of the entire home page */
-video#gatherRVAVidHome { 
     position: fixed;
     top: 50%;
     left: 50%;
@@ -108,40 +109,24 @@ video#gatherRVAVidHome {
     .ourmenu{
         margin-left:10%;
     }
+    .myDropDown {
+        width: 600px;
+    }
 }
 @media screen and (max-width: 1090px){
     .ourmenu{
         margin-left:5%;
     }
-    #RVADescription{
-        width: 75%
+    .myDropDown {
+        width: 500px;
     }
 }
 @media screen and (max-width: 1025px){
     .ourmenu{
         margin-left:0;
     }
-    #RVADescription{
-        width: 65%
+    .myDropDown {
+        width: 400px;
     }
 }
 
-#RVADescription{
-    top: 50px;
-    background-color: gray;
-    opacity: .8;
-    font-size: 24px;
-    padding: 1%;
-    font-family: 'Gloria Hallelujah', cursive;
-    width: 85%;
-}
-
-#gatheRVA{
-    font-size: 30px;
-}
-
-#weather{
-    position: fixed;
-    right: 30px;
-    top: 260px;    
-}
