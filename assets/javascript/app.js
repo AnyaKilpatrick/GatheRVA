@@ -166,7 +166,7 @@ storageRef.ref().child('event_photos/' + grabName).getDownloadURL().then(functio
 //for music from eventful
 $(document).ready(function(){
     console.log("test1")
-    eventfulURL = "http://api.eventful.com/json/events/search?app_key=DGg6NJ2vxT6RkDrW&location=Richmond,+VA&date=Next+week&c=music"
+    eventfulURL = "https://api.eventful.com/json/events/search?app_key=DGg6NJ2vxT6RkDrW&location=Richmond,+VA&date=Next+week&c=music"
     $.ajax({
         url: eventfulURL,
         method: "Get",
@@ -208,7 +208,7 @@ $(document).ready(function(){
 //for food from eventful
 $(document).ready(function(){
     console.log("test2")
-    eventfulURL = "http://api.eventful.com/json/events/search?app_key=DGg6NJ2vxT6RkDrW&location=Richmond,+VA&date=Next+week&c=food"
+    eventfulURL = "https://api.eventful.com/json/events/search?app_key=DGg6NJ2vxT6RkDrW&location=Richmond,+VA&date=Next+week&c=food"
     $.ajax({
         url: eventfulURL,
         method: "Get",
