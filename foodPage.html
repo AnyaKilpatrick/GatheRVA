@@ -17,17 +17,19 @@
 </head>
 <body>
     <!-- logo -->
-    <div class="container-fluid align-items-center justify-content-center">
+    <!-- logo -->
+    <div class="container-fluid">
         <div class="row m-3 justify-content-center">
-            <div class="col-3">
-                <video playsinline autoplay muted loop poster="polina.jpg" id="gatherRVAVid">
-                    <source src="assets/images/GatheRVAVideo.mp4" type="video/webm">
-                    <source src="assets/images/GatheRVAVideo.mp4" type="video/mp4">
-                </video>
+            <div class="col-xl-4 col-l-4 col-md-6 col-sm-8">
                 <img src="assets/images/ourlogo.png" alt="logo" id ="logo">
             </div>
         </div>
     </div>
+    <!-- Background video -->
+    <video playsinline autoplay muted loop poster="polina.jpg" id="gatherRVAVid">
+        <source src="assets/images/GatheRVAVideo.mp4" type="video/webm">
+        <source src="assets/images/GatheRVAVideo.mp4" type="video/mp4">
+    </video>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg" id="header">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,17 +56,19 @@
         </div>
     </nav>
     <div class="container">
-        <div class="row" id="Food">
-            <!-- event cards holder -->
+        <div class="row pr-3 m-3" id="Food">
+            <!-- created event cards holder -->
         </div>
     </div>
-    <!-- weather widget start --><a id="weather" target="_blank" href="http://www.booked.net/weather/richmond-648"><img src="https://w.bookcdn.com/weather/picture/4_648_0_1_0a0a0a_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=52001"  alt="booked.net"/></a><!-- weather widget end -->
+    
     <div class="container">
-        <div class="row" id="foodPageInfo">
+        <div class="row pr-3 m-3" id="foodPageInfo">
             <!-- event cards holder -->
         </div> 
     </div>
-    
+    <!-- weather widget start -->
+    <a id="weather" target="_blank" href="http://www.booked.net/weather/richmond-648"><img src="https://w.bookcdn.com/weather/picture/4_648_0_1_0a0a0a_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=52001"  alt="booked.net"/></a>
+    <!-- weather widget end -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.js"></script>
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="" src="assets/javascript/app.js"></script>
